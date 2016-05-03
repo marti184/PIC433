@@ -1,0 +1,12 @@
+Look at the files, try to figure it out. Sending part is easy, receiving times the manchester protocol pulse length and then starts counting time from the transitions.
+
+rxuse.c and txuse.c show an example of application
+
+Makefile shows how to compile using SDCC
+
+command "make all" compiles both the receiving and transmitting parts
+
+Example application circuits shown in transmitter.pdf and receiver.pdf
+The used antenna shown in antenna_conf.jpg (quarter-wave monopole antenna wire length 172mm and artificial ground plate approx 180mm x 180mm)
+
+I got at least 30m communication range in city through 5 walls using the cheap 433MHz fs1000a (on 9V battery) and xy-mk-5v pair. Maybe furter also, haven't tested.
