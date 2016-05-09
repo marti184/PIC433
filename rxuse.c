@@ -10,8 +10,8 @@ Do whatever you want with this software, don't blame me for anything you do.
 #define LEDTRI TRISA2 //
 
 
-#define GARAGE    0x10    // alarm device number 
-#define ALARM     0x08    // alarm code to be sent
+#define GARAGE    0x12    // alarm device number 
+#define ALARM     0x10    // alarm code to be sent
 
 volatile unsigned char adrbuf; // last captured address
 volatile unsigned char datbuf; // last captured data
@@ -52,7 +52,11 @@ void Intr(void) __interrupt 0
     4 - preambule too long
   */
   resi = rxData();
-  
+  if (resi != 0)
+    {
+      return;
+    }
+
 
   if (adrbuf == GARAGE)
     {
