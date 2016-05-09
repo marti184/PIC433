@@ -117,7 +117,6 @@ unsigned char rxData(void)
   TMR0 = 0; // and immidiately start timer
   T0IF = 0; // clearing any possible overflows
   INTF = 0; // and ext int flag
-  INTE = 0;   // disable the interrupt now, rest is manual
 
   /* now we have some time to work, check sanity */
   if (!sanityCheck(tper)) {return 2; }
