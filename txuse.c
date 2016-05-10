@@ -47,11 +47,8 @@ void Intr(void) __interrupt 0
 	      sendalarm();
 	    }
 	}
-      else // door is closed, clear GPIF
-	{
-	  portstate = GPIO; // needs to be read before GPIF can be cleared
-	  GPIF = 0;
-	}
+      portstate = GPIO; // needs to be read before GPIF can be cleared
+      GPIF = 0;
     }
 }
 
