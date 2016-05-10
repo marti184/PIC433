@@ -1,0 +1,30 @@
+Shown are two configurations that I tried and which gave quite good results. 
+
+
+
+   Simpler, cheaper but slightly worse is 1/4-wave dipole. Wire length is
+
+1/4 * c/f * vf= 1/4 * 299792458[m/s] / 433.92E6[Hz] * 0.951 = 0.164 [m]
+
+where c is speed of light, f is frequency, vf is velocity factor of copper (shows how much slower than light speed the information travels through it).
+Add a ground plane (actually I think it should be at the the base of antenna) with approx. the same dimensions as antenna.
+
+NB! take off the insulation from the wire, it changes the vf!
+
+
+
+   More complex but better is half-wave dipole antenna, total length (tip to tip) 2*0.164 = 0.328 m. It needs a balun (the loop of co-ax in the picture is a delay-line type) of half wavelength to align the phase in the antenna (single ended to double ended) https://en.wikipedia.org/wiki/Balun
+Centre of co-ax goes to antenna hole, shielding to ground pin.
+
+1/2 * c/f * vf = 1/2 * 299792458[m/s] / 433.92E6[Hz] * 0.66 = 0.228 [m]
+
+You can use any 50-ohm co-ax, I used RG 58 c/u, but it is highly attenuating. 
+NB! the vf for RG 58 co-ax is 0.66!
+NB! Keep co-ax length from module to antenna to minimum, it is highly attenuating!
+NB! My RG 58 had shielding which was impossible to solder, so I wrapped a strand of copper around it. 
+
+
+
+
+
+
