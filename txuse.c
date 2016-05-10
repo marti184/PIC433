@@ -11,8 +11,8 @@ static __code uint16_t __at (_CONFIG) configWord = _INTRC_OSC_NOCLKOUT & _WDT_OF
 #define DOORTRI TRISIO3 //
 #define DOORIOC IOC3    // interrupt setup
 
-#define THIS    0x12    // this device number to be sent 0001 0010
-#define ALARM   0x10    // alarm code to be sent 0001 0000
+#define THIS    0x10    // this device number to be sent 0001 0010
+#define ALARM   0x08    // alarm code to be sent 0001 0000
 
 volatile unsigned char adrbuf; // last captured address
 volatile unsigned char datbuf; // last captured data
@@ -32,23 +32,28 @@ void sendalarm(void)
 /* interrupt - something happened */
 void Intr(void) __interrupt 0
 {
-  unsigned char i;
+  unsigned char i, j;
   unsigned char portstate;
 
   /* did a pin change ? */
   if (GPIF)
     {
       /*is the door open?*/
+      //delay_ms(10); // debounce
       if (DOOR)
 	{
-	  /* send 8 alarm signals */
-	  for (i=0; i<8; i++)
+	  /* send 200x4 alarm signals */
+	  for (i=0; i<200; i++)
 	    {
-	      sendalarm();
+	      for (j=0; j<4; j++)
+		{
+		  sendalarm();
+		}
 	    }
 	}
       portstate = GPIO; // needs to be read before GPIF can be cleared
       GPIF = 0;
+      portstate = GPIO; // just in case (there is a bug in 12f675)
     }
 }
 
