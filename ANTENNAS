@@ -14,7 +14,7 @@ NB! take off the insulation from the wire, it changes the vf!
 
 
    More complex but better is half-wave dipole antenna, total length (tip to tip) 2*0.164 = 0.328 m. It needs a balun (the loop of co-ax in the picture is a delay-line type) of half wavelength to align the phase in the antenna (single ended to double ended) https://en.wikipedia.org/wiki/Balun
-Centre of co-ax goes to antenna hole, shielding to ground pin.
+Centre of co-ax goes to antenna hole, shielding to ground pin. Length of balun loop is
 
 1/2 * c/f * vf = 1/2 * 299792458[m/s] / 433.92E6[Hz] * 0.66 = 0.228 [m]
 
