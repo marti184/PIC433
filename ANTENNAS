@@ -2,7 +2,7 @@ Shown are two configurations that I tried and which gave quite good results.
 
 
 
-   Simpler, cheaper but slightly worse is 1/4-wave dipole. Wire length is
+   Simpler, cheaper but slightly worse is 1/4-wave monopole. Wire length is
 
 1/4 * c/f * vf= 1/4 * 299792458[m/s] / 433.92E6[Hz] * 0.951 = 0.164 [m]
 
