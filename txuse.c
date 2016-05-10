@@ -33,6 +33,7 @@ void sendalarm(void)
 void Intr(void) __interrupt 0
 {
   unsigned char i;
+  unsigned char portstate;
 
   /* did a pin change ? */
   if (GPIF)
@@ -48,6 +49,7 @@ void Intr(void) __interrupt 0
 	}
       else // door is closed, clear GPIF
 	{
+	  portstate = GPIO; // needs to be read before GPIF can be cleared
 	  GPIF = 0;
 	}
     }
